@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+  height: 100vh;
+}
+
+.header, .footer, .body, .left, .right, .center {
+  flex: 1 100%;
+  text-decoration-color: rgba(black, 0.75);
+}
+
+.header, .footer {
+  height: 7%;
+}
+
+@media all and (min-width: 600px) {
+  /* We tell both sidebars to share a row */
+  .left, .right { flex: 1 auto; }
+}
+
+@media all and (min-width: 800px) {
+  /* We invert order of first sidebar and main
+   * And tell the main element to take twice as much width as the other two sidebars
+   */
+  .center { flex: 2 0px; }
+
+  .left   { order: 1; }
+  .center  { order: 2; }
+  .right   { order: 3; }
+  .footer  { order: 4; }
+}
+
+.body {
+  display: flex;
+  height: 86%;
+}
+
+.header {
+  display: flex;
+  background-color: pink;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+}
+
+.footer {
+  display: flex;
+  background-color: grey;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: small;
+}
+
+.left {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.right {
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  width: 960px;
+  background-color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button1 {
+  display: flex;
+  font-size: medium;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  background-color: white;
+  user-select: none;
+}
+
+.button2 {
+  display: flex;
+  font-size: medium;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  background-color: white;
+  user-select: none;
+}
+
+.button3 {
+  display: flex;
+  font-size: medium;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  background-color: white;
+  user-select: none;
+}
