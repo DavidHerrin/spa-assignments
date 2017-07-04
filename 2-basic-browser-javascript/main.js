@@ -45,7 +45,10 @@ $(document)
       resetActive = false
       $.fn.chgtotal()
       $.fn.display()
-
+      window.localStorage.removeItem('autototal')
+      window.localStorage.removeItem('total')
+      window.localStorage.removeItem('amtToSum')
+      window.localStorage.removeItem('intervalcount')
     }
 
     $.fn.display = function () {
