@@ -13,8 +13,50 @@ const controller =
       return this.service.amount
     }
 
+    get multiplier () {
+      return this.service.multiplier
+    }
+
+    get multiplierCost () {
+      return this.service.multiplierCost
+    }
+
+    get clickerCost () {
+      return this.service.clickerCost
+    }
+
+    get clickerCount () {
+      return this.service.clickerCount
+    }
+
     click () {
       this.service.increment()
+    }
+
+    click2 () {
+      if (this.service.canAfford(this.service.multiplierCost)) {
+        this.service.charge(this.service.multiplierCost)
+        this.service.multiple()
+      }
+    }
+
+    click3 () {
+      if (this.service.canAfford(this.service.clickerCost)) {
+        this.service.charge(this.service.clickerCost)
+        this.service.addClicker()
+      }
+    }
+
+    click4 () {
+      this.service.resetAll()
+    }
+
+    disabled () {
+      return !this.service.canAfford(this.service.multiplierCost)
+    }
+
+    disabled2 () {
+      return !this.service.canAfford(this.service.clickerCost)
     }
   }
 

@@ -1,5 +1,31 @@
 <button
     class="ft-btn col-md-12"
     ng-click="body.click()">
-  <h2>+{{body.amount}}</h2>
+  <h2>+{{body.amount | number: 2}}</h2>
 </button>
+
+<div>Click here to multiply:</div>
+
+<button2
+    class="ft-btn col-md-12"
+    ng-click="body.click2()"
+    ng-disabled="body.disabled()">
+  <h2>Cost is {{body.multiplierCost | number: 2}} clicks *{{body.multiplier | number: 2}}</h2>
+</button2>
+
+<div>Click here to add autoclicker:</div><div>Number of clickers is: {{body.clickerCount}}</div>
+
+<button3
+    class="ft-btn col-md-12"
+    ng-click="body.click3()"
+    ng-disabled="body.disabled2()">
+  <h2>Cost to click is -{{body.clickerCost | number: 2}}</h2>
+</button3>
+
+<div>Click here to reset:</div>
+
+<button4
+    class="ft-btn2 col-md-12"
+    ng-click="body.click4()">
+  <h2>Reset</h2>
+</button4>

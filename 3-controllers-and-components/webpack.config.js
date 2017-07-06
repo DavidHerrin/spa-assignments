@@ -1,4 +1,4 @@
-'use strict'
+  'use strict'
 
 // webpack build configuration
 // see https://webpack.js.org/configuration/
