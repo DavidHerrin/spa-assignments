@@ -6,6 +6,7 @@ const controller =
     constructor ($log, appService) {
       'ngInject'
       this.service = appService
+      this.service.loadstorage()
       $log.log('ft-body is a go')
     }
 
@@ -27,6 +28,10 @@ const controller =
 
     get clickerCount () {
       return this.service.clickerCount
+    }
+
+    get resetDisabled () {
+      return this.service.resetDisabled
     }
 
     click () {
@@ -57,6 +62,10 @@ const controller =
 
     disabled2 () {
       return !this.service.canAfford(this.service.clickerCost)
+    }
+
+    disabled3 () {
+      return this.service.resetDisabled
     }
   }
 

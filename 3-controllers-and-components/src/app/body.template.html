@@ -19,13 +19,14 @@
     class="ft-btn col-md-12"
     ng-click="body.click3()"
     ng-disabled="body.disabled2()">
-  <h2>Cost to click is -{{body.clickerCost | number: 2}}</h2>
+  <h2>Cost to click is {{body.clickerCost | number: 2}}</h2>
 </button3>
 
 <div>Click here to reset:</div>
 
 <button4
     class="ft-btn2 col-md-12"
-    ng-click="body.click4()">
+    ng-click="body.click4()"
+    ng-disabled="body.disabled3()">
   <h2>Reset</h2>
 </button4>
