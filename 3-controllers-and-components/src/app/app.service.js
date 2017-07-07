@@ -9,6 +9,7 @@ export class AppService {
   clickerArray = []
   resetDisabled = true
   saveArray = []
+  userName = ""
 
   constructor ($interval, localStorageService) {
     'ngInject'
@@ -17,9 +18,9 @@ export class AppService {
   }
 
   loadstorage () {
-    this.saveArray.length = 0
-    this.saveArray = JSON.parse(this.localStorageService.get('total'))
-    if (this.saveArray.length === 0) {
+    this.saveArray = []
+    this.saveArray = JSON.parse(this.localStorageService.get(this.userName))
+    if (this.saveArray === null) {
       this.resetAll()
     } else {
       this.total = this.saveArray[0]
@@ -35,14 +36,33 @@ export class AppService {
     }
   }
 
+  saveUser () {
+    this.localStorageService.set('localUser', JSON.stringify(this.userName))
+  }
+
+  getUser () {
+    this.userName = JSON.parse(this.localStorageService.get('localUser'))
+    if (this.userName === null) {
+      this.userName = ''
+    } else {
+      this.loadstorage ()
+    }
+  }
+
+  clearUser () {
+    this.userName = ''
+    this.localStorageService.set('localUser', JSON.stringify(this.userName))
+    this.resetAll ()
+  }
+
   savestorage () {
-    this.saveArray.length = 0
+    this.saveArray = []
     this.saveArray.push(this.total)
     this.saveArray.push(this.amount)
     this.saveArray.push(this.multiplier)
     this.saveArray.push(this.multiplierCost)
     this.saveArray.push(this.clickerCount)
-    this.localStorageService.set('total', JSON.stringify(this.saveArray))
+    this.localStorageService.set(this.userName, JSON.stringify(this.saveArray))
   }
 
   increment() {
@@ -83,8 +103,8 @@ export class AppService {
     for (let i = 0; i < this.clickerArray.length; i++) {
       this.$interval.cancel(this.clickerArray[i])
     }
-    this.saveArray.length = 0
-    this.localStorageService.set('total', JSON.stringify(this.saveArray))
+    this.saveArray = []
+//    this.localStorageService.set(this.userName, JSON.stringify(this.saveArray))
   }
 
 }

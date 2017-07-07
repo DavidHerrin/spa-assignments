@@ -6,7 +6,7 @@ const controller =
     constructor ($log, appService) {
       'ngInject'
       this.service = appService
-      this.service.loadstorage()
+      this.service.getUser()
       $log.log('ft-body is a go')
     }
 
@@ -34,6 +34,10 @@ const controller =
       return this.service.resetDisabled
     }
 
+    get userName () {
+      return this.service.userName
+    }
+
     click () {
       this.service.increment()
     }
@@ -53,7 +57,13 @@ const controller =
     }
 
     click4 () {
-      this.service.resetAll()
+      if (!this.service.resetDisabled) {
+        this.service.resetAll()
+      }
+    }
+
+    click5 () {
+      this.service.clearUser()
     }
 
     disabled () {
@@ -66,6 +76,16 @@ const controller =
 
     disabled3 () {
       return this.service.resetDisabled
+    }
+
+    signedOn () {
+      return !(this.service.userName === '')
+    }
+
+    submitClick (user) {
+      this.service.userName = user
+      this.service.loadstorage()
+      this.service.saveUser()
     }
   }
 

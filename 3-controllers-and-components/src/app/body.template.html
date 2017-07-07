@@ -1,32 +1,39 @@
+<div ng-show="!body.signedOn()">
+
+  User Name:<input type="text" name="user" size="25" ng-model="user">
+  <input type="submit" value="Submit" ng-click="body.submitClick(user)">
+</div>
+<div ng-show="body.signedOn()">
 <button
     class="ft-btn col-md-12"
     ng-click="body.click()">
   <h2>+{{body.amount | number: 2}}</h2>
 </button>
-
-<div>Click here to multiply:</div>
-
+<p class="col-md-12" style="text-align:left">Click here to multiply:</p>
 <button2
     class="ft-btn col-md-12"
     ng-click="body.click2()"
     ng-disabled="body.disabled()">
   <h2>Cost is {{body.multiplierCost | number: 2}} clicks *{{body.multiplier | number: 2}}</h2>
 </button2>
-
-<div>Click here to add autoclicker:</div><div>Number of clickers is: {{body.clickerCount}}</div>
-
+<p class="col-md-6" style="text-align:left">Click here to add autoclicker:</p>
+<p class="col-md-6" style="text-align:right"> Number of clickers is: {{body.clickerCount}}</p>
 <button3
     class="ft-btn col-md-12"
     ng-click="body.click3()"
     ng-disabled="body.disabled2()">
   <h2>Cost to click is {{body.clickerCost | number: 2}}</h2>
 </button3>
-
-<div>Click here to reset:</div>
-
+<p class="col-md-12" style="text-align:left">Click here to reset:</p>
 <button4
-    class="ft-btn2 col-md-12"
+    class="ft-btn2 col-md-6"
     ng-click="body.click4()"
     ng-disabled="body.disabled3()">
   <h2>Reset</h2>
 </button4>
+<button5
+    class="ft-btn3 col-md-6"
+    ng-click="body.click5()">
+  <h2>Sign Off</h2>
+</button5>
+</div>
