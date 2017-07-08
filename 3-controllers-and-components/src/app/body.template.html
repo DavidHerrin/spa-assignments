@@ -4,27 +4,28 @@
   <input type="submit" value="Submit" ng-click="body.submitClick(user)">
 </div>
 <div ng-show="body.signedOn()">
+  <p class="ft-par col-md-12" style="text-align:center">Player:{{body.userName}}</p>
 <button
     class="ft-btn col-md-12"
     ng-click="body.click()">
   <h2>+{{body.amount | number: 2}}</h2>
 </button>
-<p class="col-md-12" style="text-align:left">Click here to multiply:</p>
+<p class="ft-par col-md-12" style="text-align:left">Click here to multiply:</p>
 <button2
     class="ft-btn col-md-12"
     ng-click="body.click2()"
     ng-disabled="body.disabled()">
-  <h2>Cost is {{body.multiplierCost | number: 2}} clicks *{{body.multiplier | number: 2}}</h2>
+  <h2>Cost is {{body.multiplierCost | number: 0}} clicks *{{body.multiplier | number: 2}}</h2>
 </button2>
-<p class="col-md-6" style="text-align:left">Click here to add autoclicker:</p>
-<p class="col-md-6" style="text-align:right"> Number of clickers is: {{body.clickerCount}}</p>
+<p class="ft-par col-md-6" style="text-align:left">Click here to add autoclicker:</p>
+<p class="ft-par col-md-6" style="text-align:right"> Number of clickers is: {{body.clickerCount}}</p>
 <button3
     class="ft-btn col-md-12"
     ng-click="body.click3()"
     ng-disabled="body.disabled2()">
-  <h2>Cost to click is {{body.clickerCost | number: 2}}</h2>
+  <h2>Cost to click is {{body.clickerCost | number: 0}}</h2>
 </button3>
-<p class="col-md-12" style="text-align:left">Click here to reset:</p>
+<p class="ft-par col-md-12" style="text-align:left">Click here to reset:</p>
 <button4
     class="ft-btn2 col-md-6"
     ng-click="body.click4()"

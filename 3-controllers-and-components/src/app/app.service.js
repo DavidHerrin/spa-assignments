@@ -74,7 +74,7 @@ export class AppService {
   multiple() {
     this.amount *= this.multiplier
     this.multiplier *= 1.5
-    this.multiplierCost *= 2.0
+    this.multiplierCost *= 10
     this.savestorage()
   }
 
@@ -89,7 +89,7 @@ export class AppService {
   addClicker() {
     this.clickerArray.push(this.$interval(() => {this.increment()}, 1000))
     this.clickerCount++
-    this.clickerCost *= 2
+    this.clickerCost *= 10
   }
 
   resetAll() {
