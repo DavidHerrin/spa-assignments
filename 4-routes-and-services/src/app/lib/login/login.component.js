@@ -25,7 +25,6 @@ const controller =
       this.dataservice.getUserExists(user)
       .then((response) => {
         if (response === true) {
-          alert('here3')
           this.$state.go('game')
         } else {
           console.log('returned false, failed login')
