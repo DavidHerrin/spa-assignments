@@ -7,7 +7,7 @@ import ftLogin from 'login/login.module'
 
 import { ftApp } from 'app/app.component'
 import { ftHeader } from 'app/header.component'
-
+import { dataservice } from 'dataservice/dataservice.service'
 import { config } from 'app/app.config'
 import { run } from 'app/app.run'
 
@@ -23,6 +23,7 @@ export default ng
   ])
   .component('ftApp', ftApp)
   .component('ftHeader', ftHeader)
+  .service('dataservice', dataservice)
   .config(config)
   .run(run)
   .name

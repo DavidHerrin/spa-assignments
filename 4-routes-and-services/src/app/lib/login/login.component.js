@@ -3,8 +3,9 @@ import templateUrl from 'login/login.template'
 
 const controller =
   class LoginController {
-    constructor ($log, loginService, $state) {
+    constructor ($log, dataservice, loginService, $state) {
       'ngInject'
+      this.dataservice = dataservice
       this.service = loginService
       this.$state = $state
       $log.log('ft-login is a go')
@@ -15,10 +16,24 @@ const controller =
     }
 
     submitClick (user) {
-      if (user !== '') {
-        this.service.login
-        this.$state.go('game')
-      }
+//      if (user !== '') {
+      this.validateUser(user)
+//        this.service.login
+    }
+
+    validateUser (user) {
+      this.dataservice.getUserExists(user)
+      .then((response) => {
+        if (response === true) {
+          alert('here3')
+          this.$state.go('game')
+        } else {
+          console.log('returned false, failed login')
+          return false
+        }
+      }, (error) => {
+        console.log(error)
+      })
     }
   }
 

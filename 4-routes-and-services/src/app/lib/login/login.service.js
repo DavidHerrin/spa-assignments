@@ -4,8 +4,4 @@ export class LoginService {
     Object.assign(this, defaultSettings)
   }
 
-  login () {
-    this.loggedIn = true
-  }
-
 }
